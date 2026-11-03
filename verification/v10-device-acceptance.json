@@ -1,0 +1,21 @@
+{
+  "bundle_version": "2026110310",
+  "installed_and_data_verified": true,
+  "device_ui_tested": true,
+  "gyro_in_settings_tested": true,
+  "backpack_mode_in_settings_tested": true,
+  "layout_from_settings_tested": true,
+  "touch_visibility_tested": true,
+  "all_scenarios_or_long_term_validated": false,
+  "pending": null,
+  "launch_and_save_load_user_verified": true,
+  "unified_settings_user_verified": true,
+  "settings_remains_available_when_touch_hidden_user_verified": true,
+  "touch_reenable_user_verified": true,
+  "gyro_recenter_user_verified": true,
+  "backpack_auto_transitions_user_verified": true,
+  "layout_drag_cancel_restores_user_verified": true,
+  "basic_daily_use_acceptance_passed": true,
+  "system_settings_entry_toggle_packaged": true,
+  "system_settings_entry_toggle_runtime_verified": false
+}

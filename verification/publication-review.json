@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-03",
+  "scope": "Only explicitly curated public directory, including nested module ZIP",
+  "file_type_allowlist": true,
+  "game_runtime_and_game_assets_excluded": true,
+  "signing_profiles_certificates_keys_pairing_saves_and_raw_device_logs_excluded": true,
+  "known_personal_identifiers_scan_utf8_and_utf16le_passed": true,
+  "generic_credential_and_email_scan_passed": true,
+  "binary_modules_match_tested_v10": true,
+  "limitations": "Pattern and allowlist review, not a comprehensive third-party security audit."
+}

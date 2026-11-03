@@ -1,0 +1,54 @@
+"""One schema for the in-game panel and iPad Settings app, with stable keys."""
+GROUPS = [
+    {"title": "画面", "footer": "画面和帧率选项保存后，需从多任务退出游戏再重新打开。屏幕输出以1080p场景放大，支持普通缩放和MetalFX空间超分。", "rows": [
+        {"type": "choice", "title": "分辨率与放大", "key": "BOTW_IPAD_DISPLAY_PROFILE", "default": "1080", "restart": True,
+         "values": ["legacy", "1080", "panel", "panel-mfx"], "titles": ["兼容 · 540p场景", "1080p游戏区域", "1080p → 屏幕 · 普通放大", "1080p → 屏幕 · MetalFX"]},
+        {"type": "choice", "title": "画面比例", "key": "BOTW_IPAD_ASPECT", "default": "16:9", "restart": True,
+         "values": ["16:9", "screen"], "titles": ["16:9 · 保留黑边", "11英寸iPad全屏取景"]},
+        {"type": "choice", "title": "帧率上限", "key": "BOTW_IPAD_FRAME_CAP", "default": "auto", "restart": True,
+         "values": ["auto", "30", "60"], "titles": ["跟随游戏", "30帧", "60帧"]},
+    ]},
+    {"title": "背包", "footer": "自动兼容：全屏取景时，进入背包使用16:9，退出后恢复全屏。固定全屏可能仍有菜单错位。", "rows": [
+        {"type": "choice", "title": "背包显示", "key": "BOTW_MENU_DISPLAY_MODE", "default": "auto",
+         "values": ["auto", "16:9", "fullscreen"], "titles": ["自动兼容（推荐）", "固定16:9", "保持全屏"]},
+    ]},
+    {"title": "体感", "footer": "使用iPad自身传感器。请同时开启游戏选项里的体感瞄准；重新校准时保持设备平稳。", "rows": [
+        {"type": "toggle", "title": "iPad体感瞄准", "key": "BOTW_IPAD_GYRO_ENABLED", "default": True},
+        {"type": "action", "title": "重新校准", "action": "recenter", "requires": ["BOTW_IPAD_GYRO_ENABLED"]},
+    ]},
+    {"title": "虚拟手柄", "footer": "布局编辑可拖动按键和摇杆，并调整大小与透明度；保存后保留在本机。编辑前请先在游戏内暂停。", "rows": [
+        {"type": "toggle", "title": "显示虚拟手柄", "key": "BOTW_TOUCH_VISIBLE", "default": True},
+        {"type": "toggle", "title": "使用自定义布局", "key": "BOTW_TOUCH_EDITOR_ENABLED", "default": True},
+        {"type": "action", "title": "编辑布局", "action": "layout", "requires": ["BOTW_TOUCH_VISIBLE", "BOTW_TOUCH_EDITOR_ENABLED"]},
+    ]},
+    {"title": "界面", "footer": "隐藏设置入口后，可在系统「设置 → App → 塞尔达」重新开启。性能信息的更改重开游戏后生效。", "rows": [
+        {"type": "toggle", "title": "显示游戏内设置入口", "key": "BOTW_SETTINGS_BUTTON", "default": True},
+        {"type": "toggle", "title": "显示性能信息", "key": "BOTW_IPAD_PERFORMANCE_DISPLAY", "default": False, "restart": True},
+    ]},
+    {"title": "语言", "footer": "游戏语言的更改重开游戏后生效。", "rows": [
+        {"type": "choice", "title": "游戏语言", "key": "TOTK_LANG", "default": "", "restart": True,
+         "values": ["", "zh-Hant", "zh-Hans", "en-US", "ja", "de", "es", "fr", "it", "nl", "ru", "ko"],
+         "titles": ["跟随系统", "繁體中文", "简体中文", "English", "日本語", "Deutsch", "Español", "Français", "Italiano", "Nederlands", "Русский", "한국어"]},
+    ]},
+    {"title": "高级", "footer": "诊断记录只保存在本机，通常无需开启。布局编辑和体感校准请从游戏内设置操作。", "rows": [
+        {"type": "toggle", "title": "记录诊断日志", "key": "TOTK_DEBUG_LOG", "default": False, "restart": True},
+        {"type": "toggle", "title": "本地运行记录", "key": "BOTW_IPAD_LOCAL_DIAGNOSTICS", "default": False, "restart": True},
+        {"type": "action", "title": "打开系统设置", "action": "system"},
+        {"type": "info", "title": "游戏版本", "detail": "1.6.0"},
+    ]},
+]
+
+
+def system_plist():
+    rows = []
+    for group in GROUPS:
+        rows.append({"Type": "PSGroupSpecifier", "Title": group["title"], "FooterText": group["footer"]})
+        for item in group["rows"]:
+            if item["type"] not in ("toggle", "choice"):
+                continue
+            row = {"Type": "PSToggleSwitchSpecifier" if item["type"] == "toggle" else "PSMultiValueSpecifier",
+                   "Title": item["title"], "Key": item["key"], "DefaultValue": item["default"]}
+            if item["type"] == "choice":
+                row.update(Values=item["values"], Titles=item["titles"])
+            rows.append(row)
+    return {"PreferenceSpecifiers": rows}

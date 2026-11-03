@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "revision": "v10",
+  "bundle_version": "2026110310",
+  "unsigned": true,
+  "target": "arm64-apple-ios26.0",
+  "device_tested": "11-inch iPad Pro M5 / iPadOS 27.0.1",
+  "host_executable_sha256": "0914f14fe54d76b986a0a181d394bc7ae2882e5e16d291c2bc8eb4754dbbffcd",
+  "supported_input_ipa_sha256": "d2e6b99c334cc4fed45f92691bcbf3afff3651f5a0c38f0e12e718f17648abde",
+  "host_uuid": "7706de5e-b574-3266-960e-75939cb98380",
+  "files": {
+    "BotWSettings.json": "ec12b9ea7028318508bef70e60d4130360a013e3422236794e6668fa5bb768f6",
+    "Frameworks/BotWDisplay.dylib": "7f65f539ef936f3afde84dc8f740fb025ff48aa6a4cbcca588024634cafc8ab2",
+    "Frameworks/BotWInventoryProbe.dylib": "1940411f6504a6cb63c08ab7e43a912e9fa41f7337648d2bbf6ca7d57a97507c",
+    "Frameworks/BotWTouchLayout.dylib": "c4c4d201fb85db5970ec162b239c8247c3dedf04446480176b6f0ee6bc7ae6a5",
+    "Settings.bundle/Root.plist": "9353a11ad1ae92bdafb2766c32112530b244379fa1178a75c408b6f55e04cd19"
+  }
+}

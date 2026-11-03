@@ -1,0 +1,89 @@
+{
+  "revision": "10",
+  "date": "2026-11-03",
+  "bundle_version": "2026110310",
+  "bytes": 1505568446,
+  "sha256": "87ee4b3c227ce57dd178bde1caa7e2e82855a59e9ee431292aa4580ab7898a89",
+  "source_sha256": "d2e6b99c334cc4fed45f92691bcbf3afff3651f5a0c38f0e12e718f17648abde",
+  "all_zip_crcs_passed": true,
+  "host_executable_identical_to_v9": true,
+  "unchanged_resource_entries": 26,
+  "changed_entries": [
+    "Payload/TOTK.app/BotWSettings.json",
+    "Payload/TOTK.app/Frameworks/BotWDisplay.dylib",
+    "Payload/TOTK.app/Frameworks/BotWInventoryProbe.dylib",
+    "Payload/TOTK.app/Frameworks/BotWTouchLayout.dylib",
+    "Payload/TOTK.app/Info.plist",
+    "Payload/TOTK.app/Settings.bundle/Root.plist"
+  ],
+  "source_hashes": {
+    "botw_settings_shared.h": "c7581fbfb3aa78fd58bc3624f6fdd3bf67ee1d3ea41138e0df0e8858dbad6e5e",
+    "botw_release_settings.py": "8cc934ce61d885c8c0845a7381007593b2ab7e5bdc4034d6ac234de9ea3c0ef3",
+    "botw_ingame_settings.m": "e58a2de428f18275347e71325aba5432fd23a790ce60073e478e42a3a09df023",
+    "botw_touch_layout.m": "ce1a7ab4b3e45614f62a8a0f6b74f7c2122b02420dff9883def4f5074cedf298",
+    "botw_touch_button.h": "7debb970d41f8a735664c25796ef4380a6a1e32bfd7c0d90064f7b630e6a9ef7",
+    "botw_touch_geometry.h": "60195cdf2a4e7d01025021a3e3ff61f10504d54b035cfe6a1ecd87f3adf5dcdc",
+    "botw_menu_compat.m": "5d5b5af239ef8f798b86d5fc81ed3ebabe8f683ccfeac564bcf67e1ead6326f1",
+    "botw_inventory_probe.m": "4b557b33e4ba0a3a986835c94c6f59e0c095cfb14d1e15e8c13e3dff94806c68",
+    "botw_menu_tracker.h": "7d4088e9bc5c68d107b9033e3c482d4baa918c5c581eb66f63eff1b8224068e1",
+    "botw_inventory_detector.h": "6374b654cec3632dfb0ead9a751e8d1eea0211bad8cc9a71aaa86882c283b2b0",
+    "botw_ipad_v10.m": "693fa68cdf89cf150691aa5caca5da230d443bc4f8d29fb07c84ec19ec8d3f91",
+    "botw_ipad_motion.m": "0927f256a06fea8cac3803e8e08acbab6812dee10191ee309055add2bd1d94d1",
+    "botw_motion_math.h": "f6867f1799ee63a17595df30049357bd61a7ffa9b0ac7a9b3513a60701e8897c",
+    "botw_ipad_display.m": "8eada4a004152f90315e754b52d2bb82e771ce83a5766e8f0cbaa27ec6932809",
+    "botw_pacing_policy.h": "1c29f5dfcbb68fce1fd7c0634b7845f85b9927b77f7a63fddc8ee9b90c9bb1f5",
+    "prepare_botw_daily_v10.py": "81ff0a5d2e74ed16b19f4a22cb1a40bdaf18ea584ef4b8c8c735d67d0e2f8014"
+  },
+  "static_analysis_diagnostics": {
+    "BotWInventoryProbe": 0,
+    "BotWTouchLayout": 0,
+    "BotWDisplay": 0
+  },
+  "regression_tests": {
+    "inventory_detector": {
+      "captured_inventory_masks_matched": true,
+      "captured_non_inventory_mask_rejected": true,
+      "checks": 11
+    },
+    "menu_tracker": {
+      "checks": 38,
+      "tested_fps": [
+        30,
+        60,
+        120
+      ],
+      "unknown_frames_hold_state": true,
+      "stalled_game_holds_state": true,
+      "ring_positive_wins": true
+    },
+    "motion_math": {
+      "checks": 34,
+      "proper_rotation_both_landscapes": true,
+      "stale_future_nonfinite_rejected": true
+    },
+    "touch_geometry": {
+      "geometry_checks_passed": 908,
+      "uikit_runtime_tested": false
+    },
+    "pacing_policy": {
+      "checks": 15,
+      "old_60_to_30_model_regression_reproduced": true,
+      "generic_30hz_double_interval_model_verified": true,
+      "display_tick_cap_independent_of_game_interval": true,
+      "auto_preserved": true
+    }
+  },
+  "native_settings_shared_schema": true,
+  "legacy_floating_buttons_removed": true,
+  "touch_hide_releases_input": true,
+  "settings_entry_independent_of_touch_visibility": true,
+  "saved_layout_key_unchanged": true,
+  "gyro_fusion_unchanged": true,
+  "menu_detection_tracker_unchanged": true,
+  "pacing_policy_unchanged_from_v9": true,
+  "first_daily_launch_disables_test_diagnostics": true,
+  "no_new_gpu_backend_optimization": true,
+  "network_access": false,
+  "executable_memory_writes": false,
+  "note": "Historical build-time result; actual device acceptance is recorded separately. No IPA is distributed."
+}

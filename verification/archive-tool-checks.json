@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-03",
+  "python_sources_syntax_passed": true,
+  "existing_pure_c_regression_checks": 1006,
+  "rebuilt_all_three_modules": true,
+  "rebuilt_module_sha256_identical_to_archived_v10": true,
+  "strict_warnings_passed": true,
+  "static_analysis_diagnostics": {
+    "BotWInventoryProbe": 0,
+    "BotWTouchLayout": 0,
+    "BotWDisplay": 0
+  },
+  "update_tool_tested_on_private_pinned_v9": true,
+  "output_bytes": 1505568668,
+  "output_sha256": "7200c33bd33066d710c74182bd6736d4a35e78abb0927c8e6c33d61a70331b2a",
+  "host_executable_unchanged": true,
+  "unchanged_resource_entries": 26,
+  "all_output_zip_crcs_passed": true,
+  "unsupported_input_rejected_without_output": true,
+  "newly_rebuilt_binary_device_tested": false,
+  "note": "Original v10 archived modules are device-accepted; local rebuild and regenerated packaging were not reinstalled during archiving."
+}
